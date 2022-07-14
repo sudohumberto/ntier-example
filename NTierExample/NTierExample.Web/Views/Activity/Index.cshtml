@@ -1,0 +1,33 @@
+﻿@using NTierExample.Dll.Entities
+
+@model List<Activity>
+
+@{
+    ViewData["Title"] = "Activities List";
+}
+
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Created</th>
+            <th>Created By</th>
+            <th>Modified</th>
+            <th>Modified By</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Activity activity in Model!) {
+            <tr>
+                <td>@activity.Name</td>
+                <td>@activity.CreationDate.ToShortDateString()</td>
+                <td>@activity.CreatedBy</td>
+                <td>@activity.ModifiedDate.ToShortDateString()</td>
+                <td>@activity.ModifiedBy</td>
+            </tr>
+        }
+    </tbody>
+</table>
